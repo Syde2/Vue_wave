@@ -1,10 +1,10 @@
 <script setup>
-import {computed, ref} from 'vue'
+import {computed, ref, watch} from 'vue'
 import { useSongStore } from '../../store/songStore.js'
 import { storeToRefs } from "pinia"
 
 const songStore = useSongStore()
-const {currentSong}= storeToRefs(songStore)
+const {currentSong, audio }= storeToRefs(songStore)
 const colorA = computed( ()=> currentSong.value.color[0])
 const colorB = computed( ()=> currentSong.value.color[1])
 
@@ -13,7 +13,7 @@ const colorB = computed( ()=> currentSong.value.color[1])
 
 
 <template>
-
+current :  {{ }}
 <div class="progress-bar">
 
 </div>
