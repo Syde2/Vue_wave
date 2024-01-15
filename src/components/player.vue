@@ -11,11 +11,9 @@ const {currentSong } = storeToRefs(songStore)
 const audioRef =ref()
 
 const handleTimeUpdate =(e)=>{
-	currentSong.value.timeStamp = e.timeStamp
+	currentSong.value.timeStamp = Math.floor( e.timeStamp /1000)
 }
-const handlePlay =()=>{
-	currentSong.value.audioRef = audioRef.value
-}
+
 
 </script>
 
@@ -23,8 +21,8 @@ const handlePlay =()=>{
 	<div class="container">
 		<PlayerImage :cover=currentSong.cover :artist=currentSong.artist />
 		<PlayerControl :audioRef="audioRef" />
-		<PlayerProgressBar :audio="currentSong.audio" :color="currentSong.color" />
-		<audio :src="currentSong.audio" ref='audioRef' @timeupdate="handleTimeUpdate" @playing="handlePlay"></audio>
+		<PlayerProgressBar  />
+		<audio :src="currentSong.audio" ref='audioRef' @timeupdate="handleTimeUpdate"> </audio>
 	</div>
 </template>
 

@@ -10,6 +10,7 @@ function chillHop() {
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       isPlaying: false,
+      timeStamp : 0
     },
     {
       name: "Daylight",
@@ -20,6 +21,8 @@ function chillHop() {
       color: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
       isPlaying: false,
+      timeStamp : 0
+
     },
     {
       name: "Keep Going",
@@ -30,6 +33,7 @@ function chillHop() {
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
       isPlaying: false,
+      timeStamp : 0
     },
     {
       name: "Nightfall",
@@ -40,6 +44,7 @@ function chillHop() {
       color: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
       isPlaying: false,
+      timeStamp : 0
     },
     {
       name: "Reflection",
@@ -50,6 +55,7 @@ function chillHop() {
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
       isPlaying: false,
+      timeStamp : 0
     },
     {
       name: "Under the City Stars",
@@ -60,6 +66,7 @@ function chillHop() {
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       isPlaying: false,
+      timeStamp : 0
     },
     //ADD MORE HERE
   ];

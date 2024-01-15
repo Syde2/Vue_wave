@@ -4,7 +4,7 @@ import { useSongStore } from '../../store/songStore.js'
 import { storeToRefs } from "pinia"
 
 const songStore = useSongStore()
-const {currentSong, audio }= storeToRefs(songStore)
+const {currentSong }= storeToRefs(songStore)
 const colorA = computed( ()=> currentSong.value.color[0])
 const colorB = computed( ()=> currentSong.value.color[1])
 
@@ -13,9 +13,9 @@ const colorB = computed( ()=> currentSong.value.color[1])
 
 
 <template>
-current :  {{ }}
-<div class="progress-bar">
+	{{ currentSong?.timeStamp }} / 
 
+<div class="progress-bar">
 </div>
 
 </template>

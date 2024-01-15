@@ -23,6 +23,7 @@ export const useSongStore = defineStore('songStore', {
 
 	  pauseCurrentSong(){
 		this.currentSong.isPlaying = false
+
 	  }
 
 	},

@@ -13,6 +13,10 @@ const handlePlay =()=>{
 	songStore.playCurrentSong()
 	props.audioRef.play()
 }
+const handlePause = ()=>{
+	songStore.pauseCurrentSong()
+	props.audioRef.pause()
+}
 
 </script>
 
@@ -21,7 +25,7 @@ const handlePlay =()=>{
 	<div class="control-container">
 		<span class="material-icons-round medium">fast_rewind</span>
 
-		<span v-if="currentSong.isPlaying"  @click="songStore.pauseCurrentSong" class="material-icons-round ">pause</span>
+		<span v-if="currentSong.isPlaying"  @click="handlePause" class="material-icons-round ">pause</span>
 		<span v-else  @click="handlePlay"  class="material-icons-round">play_arrow</span>
 
 		<span class="material-icons-round medium">fast_forward</span>
@@ -30,11 +34,9 @@ const handlePlay =()=>{
 
 
 <style scoped>
-
 .control-container{
 	width: 300px;
 	height: 3rem;
-	border: 1px solid black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -45,10 +47,8 @@ const handlePlay =()=>{
 	font-size:5rem;
 	color: rgb(103, 103, 103);
 	cursor: pointer;
-}
-.medium{
+}.medium{
 	font-size:3rem;
 
 }
-
 </style>
