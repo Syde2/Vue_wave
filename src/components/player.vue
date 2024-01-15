@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, watch} from 'vue'
 import { useSongStore } from '../store/songStore.js'
 import { storeToRefs } from "pinia";
 import PlayerImage from './Player/PlayerImage.vue';
@@ -15,6 +15,12 @@ const handleTimeUpdate =(e)=>{
 }
 
 
+watch(audioRef, ()=>{
+	console.log('WATCH', audioRef.value)
+	songStore.audioRef = audioRef.value
+} )
+
+
 </script>
 
 <template>
@@ -22,7 +28,7 @@ const handleTimeUpdate =(e)=>{
 		<PlayerImage :cover=currentSong.cover :artist=currentSong.artist />
 		<PlayerControl :audioRef="audioRef" />
 		<PlayerProgressBar  />
-		<audio :src="currentSong.audio" ref='audioRef' @timeupdate="handleTimeUpdate"> </audio>
+		<audio :src="currentSong.audio" ref='audioRef' :id="currentSong.id" @timeupdate="handleTimeUpdate"> </audio>
 	</div>
 </template>
 

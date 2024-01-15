@@ -2,9 +2,12 @@ import { defineStore } from "pinia"
 export const useSongStore = defineStore('songStore', {
 	state: () => ({ 
 		songs: [], 
-		currentSong: '',	
+		currentSong: '',
+		audioRef : null,
 	}),
 	getters: {
+		duration : (state)=> Math.floor(state.audioRef.duration),
+		currentTime : (state)=> Math.floor(state.audioRef.currentTime)
 	},
 	actions: {
 	  makeThisAsCurrentSong(songId) {
