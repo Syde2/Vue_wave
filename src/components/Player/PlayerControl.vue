@@ -8,11 +8,11 @@ const {currentSong}= storeToRefs(songStore)
 
 const handlePlay =()=>{
 	songStore.playCurrentSong()
-	currentSong.audioRef.play()
+	currentSong.value.audioRef.play()
 }
 const handlePause = ()=>{
 	songStore.pauseCurrentSong()
-	currentSong.audioRef.pause()
+	currentSong.value.audioRef.pause()
 }
 
 </script>

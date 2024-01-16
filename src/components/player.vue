@@ -10,10 +10,9 @@ const songStore = useSongStore()
 const {currentSong } = storeToRefs(songStore)
 const audioRef =ref()
 
-const handleTimeUpdate =(e)=>{
-	currentSong.value.timeStamp = Math.floor( e.timeStamp /1000)
+function timeListener(e){
+	currentSong.value.currentTime = Math.floor( e.target.currentTime) 
 }
-
 
 
 </script>
@@ -21,9 +20,14 @@ const handleTimeUpdate =(e)=>{
 <template>
 	<div class="container">
 		<PlayerImage />
-		<PlayerControl  />
 		<PlayerProgressBar  />
-		<audio :src="currentSong.audio" :ref="(el) => { currentSong.audioRef = el }"  :id="currentSong.id" @timeupdate="handleTimeUpdate"> </audio>
+		<PlayerControl  />
+		<audio 
+		:src="currentSong.audio" 
+		:ref="(el) => { currentSong.audioRef = el }"  
+		@timeupdate =" e =>{ timeListener(e)}"
+		@canplay="(e)=>{currentSong.duration = Math.floor(e.target.duration)}"
+		></audio>
 	</div>
 </template>
 
