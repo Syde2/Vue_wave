@@ -13,8 +13,7 @@ const colorB = computed( ()=> currentSong.value.color[1])
 
 
 <template>
-	{{ currentSong?.timeStamp }} / 
-
+DURATION : {{ currentSong?.audioRef?.duration }}
 <div class="progress-bar">
 </div>
 

@@ -15,20 +15,15 @@ const handleTimeUpdate =(e)=>{
 }
 
 
-watch(audioRef, ()=>{
-	console.log('WATCH', audioRef.value)
-	songStore.audioRef = audioRef.value
-} )
-
 
 </script>
 
 <template>
 	<div class="container">
-		<PlayerImage :cover=currentSong.cover :artist=currentSong.artist />
-		<PlayerControl :audioRef="audioRef" />
+		<PlayerImage />
+		<PlayerControl  />
 		<PlayerProgressBar  />
-		<audio :src="currentSong.audio" ref='audioRef' :id="currentSong.id" @timeupdate="handleTimeUpdate"> </audio>
+		<audio :src="currentSong.audio" :ref="(el) => { currentSong.audioRef = el }"  :id="currentSong.id" @timeupdate="handleTimeUpdate"> </audio>
 	</div>
 </template>
 

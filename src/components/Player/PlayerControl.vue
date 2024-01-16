@@ -4,18 +4,15 @@ import { storeToRefs } from "pinia"
 
 const songStore = useSongStore()
 const {currentSong}= storeToRefs(songStore)
-const props = defineProps({
-	audioRef:Object
-}
-)
+
 
 const handlePlay =()=>{
 	songStore.playCurrentSong()
-	props.audioRef.play()
+	currentSong.audioRef.play()
 }
 const handlePause = ()=>{
 	songStore.pauseCurrentSong()
-	props.audioRef.pause()
+	currentSong.audioRef.pause()
 }
 
 </script>

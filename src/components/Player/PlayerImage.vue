@@ -1,5 +1,4 @@
 <script setup>
-import {ref} from 'vue'
 import { useSongStore } from '../../store/songStore.js'
 import { storeToRefs } from "pinia"
 

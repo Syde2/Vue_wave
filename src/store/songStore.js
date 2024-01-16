@@ -3,11 +3,8 @@ export const useSongStore = defineStore('songStore', {
 	state: () => ({ 
 		songs: [], 
 		currentSong: '',
-		audioRef : null,
 	}),
 	getters: {
-		duration : (state)=> Math.floor(state.audioRef.duration),
-		currentTime : (state)=> Math.floor(state.audioRef.currentTime)
 	},
 	actions: {
 	  makeThisAsCurrentSong(songId) {
