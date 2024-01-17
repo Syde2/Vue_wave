@@ -1,30 +1,18 @@
 <script setup>
 import chillHop from './data.js'
 import Player from './components/player.vue';
-import Library from '../src/components/Library.vue'
-import { useSongStore } from '../src/store/songStore.js';
+import Library from '../src/components/library.vue' ;
+import { useSongStore } from '../src/store/songStore.js'
 import { storeToRefs } from "pinia";
 
-
-const store = useSongStore()
-const {songs, currentSong} = storeToRefs(store)
+const { songs, currentSong } = storeToRefs( useSongStore())
 songs.value = chillHop()
 currentSong.value = songs.value[0]
-
-
 
 </script>
 
 <template>
-  <div class="container">
-    <Library />
-    <Player />
-  </div>
+  <Library />
+  <Player />
 </template>
 
-<style scoped>
-.container{
-  min-height: 100vh;
-  display: flex; 
-}
-</style>
