@@ -5,6 +5,18 @@ export const useSongStore = defineStore('songStore', {
 		currentSong: '',
 	}),
 	getters: {
+		 durationInMinutes(state) {
+			const minutes = Math.floor( state.currentSong.duration / 60);
+			const secondsLeft = state.currentSong.duration % 60;
+			return `${minutes.toString().padStart(2, '0') }:${secondsLeft.toString().padStart(2, '0')} `
+		},
+		progressionInMinutes(state) {
+			const minutes = Math.floor( state.currentSong.currentTime / 60);
+			const secondsLeft = state.currentSong.currentTime % 60;
+			return `${minutes.toString().padStart(2, '0') }:${secondsLeft.toString().padStart(2, '0')} `
+		}
+		
+		
 	},
 	actions: {
 	  makeThisAsCurrentSong(songId) {
