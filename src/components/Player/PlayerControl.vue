@@ -9,10 +9,22 @@ const {currentSong}= storeToRefs(songStore)
 const handlePlay =()=>{
 	songStore.playCurrentSong()
 	currentSong.value.audioRef.play()
+	currentSong.value.isPaused = false
 }
 const handlePause = ()=>{
 	songStore.pauseCurrentSong()
 	currentSong.value.audioRef.pause()
+	currentSong.value.isPaused = true
+
+}
+
+const handleForward=()=>{
+currentSong.value.audioRef.currentTime = currentSong.value.currentTime + 30
+}
+
+const handleRewind = ()=>{
+	currentSong.value.audioRef.currentTime = currentSong.value.currentTime - 30
+
 }
 
 </script>
@@ -20,12 +32,12 @@ const handlePause = ()=>{
 
 <template>
 	<div class="control-container">
-		<span class="material-icons-round medium">fast_rewind</span>
+		<span @click=handleRewind class="material-icons-round medium">fast_rewind</span>
 
 		<span v-if="currentSong.isPlaying"  @click="handlePause" class="material-icons-round ">pause</span>
 		<span v-else  @click="handlePlay"  class="material-icons-round">play_arrow</span>
 
-		<span class="material-icons-round medium">fast_forward</span>
+		<span @click="handleForward" class="material-icons-round medium">fast_forward</span>
 	</div>
 </template>
 

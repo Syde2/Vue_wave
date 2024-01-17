@@ -14,6 +14,11 @@ function timeListener(e){
 	currentSong.value.currentTime = Math.floor( e.target.currentTime) 
 }
 
+function endSongListener(e){
+	currentSong.value.isPlaying = false
+}
+
+
 
 </script>
 
@@ -25,8 +30,10 @@ function timeListener(e){
 		<audio 
 		:src="currentSong.audio" 
 		:ref="(el) => { currentSong.audioRef = el }"  
-		@timeupdate =" e =>{ timeListener(e)}"
 		@canplay="(e)=>{currentSong.duration = Math.floor(e.target.duration)}"
+		@timeupdate =" e =>timeListener(e)"
+		@ended=" e=>endSongListener(e)"
+
 		></audio>
 	</div>
 </template>
