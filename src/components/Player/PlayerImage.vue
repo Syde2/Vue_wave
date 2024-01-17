@@ -25,6 +25,8 @@ const {currentSong}= storeToRefs(songStore)
 
 img{
 	border-radius: 50%;
+  object-fit: contain;
+
 }
 @keyframes rotate {
   from {
