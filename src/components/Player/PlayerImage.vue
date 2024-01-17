@@ -1,5 +1,4 @@
 <script setup>
-import {ref, computed, watch } from 'vue';
 import { useSongStore } from '../../store/songStore.js'
 import { storeToRefs } from "pinia"
 
@@ -14,10 +13,12 @@ const {currentSong}= storeToRefs(songStore)
 
 
 <template>
-	<div>
 		<img :src=currentSong.cover   width="300px" height="300px" 
 		:class="{ rotateSong: currentSong.isPlaying }"  />
-	</div>
+    <h2>{{ currentSong.name }}</h2>
+    <span>
+      <pre>{{ currentSong.artist }}</pre>
+    </span>
 </template>
 
 <style scoped>

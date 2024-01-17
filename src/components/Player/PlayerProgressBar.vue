@@ -37,6 +37,7 @@ const percentage = computed(() => Math.floor(currentTime.value / duration.value 
 
 .time{
 	font-size: 0.8rem;
+	padding: 3px;
 	font-family: 'Times New Roman', Times, serif;
 }
 .empty-bar {
@@ -46,7 +47,7 @@ const percentage = computed(() => Math.floor(currentTime.value / duration.value 
 	border-radius: 10px;
 	border: 1px solid black;
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	justify-content: start;
 
 

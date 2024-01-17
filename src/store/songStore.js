@@ -11,8 +11,9 @@ export const useSongStore = defineStore('songStore', {
 			return `${minutes.toString().padStart(2, '0') }:${secondsLeft.toString().padStart(2, '0')} `
 		},
 		progressionInMinutes(state) {
-			const minutes = Math.floor( state.currentSong.currentTime / 60);
-			const secondsLeft = state.currentSong.currentTime % 60;
+			let minutes = Math.floor( state.currentSong.currentTime / 60);
+			let secondsLeft = state.currentSong.currentTime % 60;
+			if ( isNaN(minutes) ) {minutes = secondsLeft = 0; }
 			return `${minutes.toString().padStart(2, '0') }:${secondsLeft.toString().padStart(2, '0')} `
 		}
 		
