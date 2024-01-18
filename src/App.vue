@@ -1,7 +1,7 @@
 <script setup>
 import chillHop from './data.js'
-import Player from './components/player.vue';
-import Library from './components/library.vue' ;
+import Player from "./components/PlayerComponent.vue"
+import Library from './components/LibraryComponent.vue'
 import { useSongStore } from '../src/store/songStore.js'
 import { storeToRefs } from "pinia";
 
@@ -15,4 +15,3 @@ currentSong.value = songs.value[0]
   <Library />
   <Player />
 </template>
-
