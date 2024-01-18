@@ -1,7 +1,7 @@
 <script setup>
 import chillHop from './data.js'
 import Player from './components/player.vue';
-import Library from '../src/components/library.vue' ;
+import Library from './components/library.vue' ;
 import { useSongStore } from '../src/store/songStore.js'
 import { storeToRefs } from "pinia";
 
